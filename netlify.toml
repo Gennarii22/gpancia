@@ -1,0 +1,6 @@
+# Deploy gpancia.com
+# Caso A (drag-drop): trascini la cartella gpancia.com/ su Netlify → questo file è opzionale.
+# Caso B (repo GitHub connesso a Netlify): tieni questo file alla radice del repo.
+[build]
+  publish = "."
+  command = ""
