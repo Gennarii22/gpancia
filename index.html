@@ -353,11 +353,11 @@ footer a:hover{color:var(--brass)}
 
     // generic reveals
     gsap.utils.toArray('.rv').forEach(function(el){
-      if(el.closest('.hero'))return;
+      if(el.closest('.hero')||el.classList.contains('work-row'))return;
       gsap.from(el,{opacity:0,y:30,duration:.9,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 88%'}});
     });
     // statement word emphasis
-    ScrollTrigger.batch('.work-row',{start:'top 90%',onEnter:function(b){gsap.from(b,{opacity:0,y:24,duration:.8,ease:'expo.out',stagger:.08});}});
+    ScrollTrigger.batch('.work-row',{start:'top 90%',once:true,onEnter:function(b){gsap.fromTo(b,{opacity:0,y:24},{opacity:1,y:0,duration:.8,ease:'expo.out',stagger:.08,overwrite:true});}});
     // count ups on scroll
     document.querySelectorAll('section:not(.hero) [data-count]').forEach(function(el){
       ScrollTrigger.create({trigger:el,start:'top 92%',once:true,onEnter:function(){countUp(el);}});
